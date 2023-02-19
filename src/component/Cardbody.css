@@ -1,0 +1,18 @@
+.items{
+    background-color:#198754;
+    color:beige;
+    text-align :center;
+    font-size:25px;
+    width: 100%;
+    display:flex;
+}
+
+.col-md-6 .card {
+    
+    width: 35% !important;
+     
+}
+
+img.card-img-top {
+    height: 35% !important;
+}
