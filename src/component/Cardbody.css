@@ -10,9 +10,17 @@
 .col-md-6 .card {
     
     width: 35% !important;
+
      
 }
 
+.card{
+    margin: 2rem auto;
+    padding: 1px;
+    border:2px solid #198754 ;
+
+
+}
 img.card-img-top {
     height: 35% !important;
 }

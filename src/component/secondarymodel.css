@@ -1,0 +1,14 @@
+.secondary{
+         display:flex;
+         justify-content: right;
+         background-color:green;
+         color:beige;
+         position: fixed;
+         bottom: 0;
+         right: 0;
+         text-align: center;
+         width: auto;;
+         padding: 2px;
+         z-index: 999;
+    
+}

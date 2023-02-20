@@ -1,5 +1,10 @@
+import React from "react";
+
 import { Header } from "./component/Header";
 import Cardbody from "./component/cardbody";
+import { Heading } from "./component/heading";
+import CardProvider from "./store/CardContextprovider";
+
 
 
 
@@ -56,15 +61,13 @@ function App() {
 
   const items = productsArr.map((item) => {
     return (
-      <div className="col-md-6" style={{}}>
-
-        <Cardbody
-          key={item.id}
+      <div  key={item.id}className="col-md-6" >
+      <Cardbody
+          id={Math.random()}
           title={item.title}
           price={item.price}
           image={item.imageUrl}
         >
-
         </Cardbody>
       </div>
     )
@@ -76,17 +79,12 @@ function App() {
 
 
   return (
-    <div >
+    <CardProvider >
       <Header />
-      <div className="row" style={{ margin: "0 auto" }}>{items}</div>
-
-
-
-
-
-
-
-    </div>
+      <Heading />
+    <div className="row" >{items}</div>
+    
+    </CardProvider>
   );
 }
 
