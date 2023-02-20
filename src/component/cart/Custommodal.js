@@ -1,6 +1,7 @@
 import React from 'react';
-import { Modal, Button,Table } from 'react-bootstrap';
+import { Modal, Button, Table } from 'react-bootstrap';
 import Cart from './Cart';
+
 
 
 
@@ -11,7 +12,7 @@ function CustomModal(props) {
   return (
     <div
       className="modal show"
-      style={{ display: 'block', position: "fixed",  height: "100%", width: "100%" , overflow:"scroll" }}
+      style={{ display: 'block', marginLeft:"66rem" , marginTop:"5rem",position: "fixed", height: "auto", width: "30%"}}
     >
       <Modal.Dialog >
         <Modal.Header closeButton onClick={props.hide}>
@@ -28,20 +29,18 @@ function CustomModal(props) {
               </tr>
             </thead>
             <tbody>
-            <Cart item={props.item}/>
+              <Cart />
             </tbody>
+          </Table>
 
-          
-            </Table>
 
-          
-            </Modal.Body>
-         <Modal.Footer>
-              <Button variant="danger" onClick={props.hide}>Close</Button>
-              <Button variant="warning">Order Placed</Button>
-            </Modal.Footer>
-         
-       
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="danger" onClick={props.hide}>Close</Button>
+          <Button variant="warning" onClick={props.order}>Order Placed</Button>
+        </Modal.Footer>
+
+
       </Modal.Dialog>
 
 

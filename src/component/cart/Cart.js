@@ -1,41 +1,38 @@
 import { Button } from "react-bootstrap";
-import React from "react";
-function Cart(props) {
-  
-  function removeHandler(id){
-   
+import React, { useContext } from "react";
+import Cardcontext from "../../store/context";
+import { TotalAmount } from "./TotalAmount";
 
+function Cart(props) {
+
+  let ctx = useContext(Cardcontext)
+  let dataarray = ctx.items
+
+  function cartItemRemoveHandler(id) {
+    ctx.removeItem(id)
   }
 
-  var sum = props.item.reduce(function (acc, obj) { return acc + obj.price; }, 0);
-  
+  const sum = dataarray.reduce(function (acc, obj) { return acc + obj.price; }, 0);
+  const cartitems = dataarray.map((item) => {
 
- const cartitems= props.item.map((item)=>{
-  
-    return(
-     
-    <tr key={item.id}>
-      <td>{item.quantity} {item.title}</td>
-      <td><img src={item.image} alt="red" style={{ width: "100px", heigth: "100px" }}></img></td>
-      <td>${item.price}</td>
-      <td><Button variant="danger" onClick={removeHandler}>Remove item</Button></td>
-    </tr>
-  
- 
+    return (
+      <tr key={item.id}
+      >
+        <td>{item.quantity} {item.title}</td>
+        <td><img src={item.image} alt="red" style={{ width: "100px", heigth: "100px" }}></img></td>
+        <td>${item.price}</td>
+        <td><Button variant="danger" onClick={cartItemRemoveHandler.bind(null, item.id)}>Remove item</Button></td>
+      </tr>
     )
   })
 
 
   return (
     <React.Fragment>
-   {cartitems}
-   <tr>
-    <td style={{backgroundColor:"#198754", fontSize:"20px",fontFamily:"Robinson Typeface" , color:"black" }}> Total Amount</td>
-    <td style={{backgroundColor:"#198754", fontSize:"20px" ,fontFamily:"Robinson Typeface", textAlign:"center", color:"black"}}>${sum}</td>
-   </tr>
-   </React.Fragment>
+      {cartitems}
+      <TotalAmount sum={sum} />
+    </React.Fragment>
   )
- 
 }
 
 export default Cart

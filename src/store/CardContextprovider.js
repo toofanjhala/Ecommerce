@@ -1,19 +1,21 @@
 import Cardcontext from "./context";
-import React,{useState} from "react";
+import React, { useState } from "react";
 
 const CardProvider = (props) => {
-  
-    const [items,setitems]=useState([])
+
+    const [items, setitems] = useState([])
+
     const addItemToCartHandler = (item) => {
-        
-         setitems([...items,item])
-         
+        setitems([...items, item])
     };
 
-    
 
-    const removeItemFromCartHandler = (id) => {
-       
+
+    const removeItemFromCartHandler = (deleteid) => {
+        const result = items.filter((item) => {
+            return item.id !== deleteid
+        })
+        setitems(result)
     };
 
     const cartContext = {
