@@ -4,7 +4,7 @@ import {ImYoutube2 ,ImSpotify, ImFacebook2} from "react-icons/im";
 
 
 
-export const Footer = () => {
+ const Footer = () => {
   
   return(
   <footer className={classes.footer}>
@@ -24,3 +24,5 @@ export const Footer = () => {
     </footer>
   )
 }
+
+export default Footer
