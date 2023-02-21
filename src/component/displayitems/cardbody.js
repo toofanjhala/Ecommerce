@@ -3,6 +3,7 @@ import { Card, Button } from 'react-bootstrap'
 import './Cardbody.css'
 import Cardcontext from '../../store/context'
 import { Secondarycard } from '../Secondarymodal/secondarymodal'
+import { IoAddCircle } from "react-icons/io5";
 
 
 
@@ -52,7 +53,8 @@ export const Cardbody = (props) => {
           <Card.Img variant="top" src={props.image} />
           <h3> PRICE  ${props.price}</h3>
           <Card.Footer>
-            <Button variant="success" onClick={itemhandler}>Add to Cart</Button>
+        
+            <Button variant="success" onClick={itemhandler}> <IoAddCircle size="2em"/> Add to Cart</Button>
           </Card.Footer>
         </div>
       </Card>

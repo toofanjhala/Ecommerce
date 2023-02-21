@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import { Button } from 'react-bootstrap'
 import Cardcontext from '../../store/context'
 import CustomModal from './Custommodal'
-
+import {BsCartDashFill} from   "react-icons/bs";
 export const CustomButton = () => {
 
     const ctx = useContext(Cardcontext)
@@ -24,8 +24,10 @@ export const CustomButton = () => {
     return (
         <React.Fragment>
             <div>
+           
                 <Button onClick={showmodalhandler} variant="info"> YOUR CART
-                    <div style={{ color: "black", fontFamily: "inherit", fontSize: "18px", fontStyle: "bold", padding: "1px" }}>{totalnumber}</div>
+                    <div style={{ color: "black", fontFamily: "inherit", fontSize: "18px", fontStyle: "bold", padding: "1px" }}>
+                      <BsCartDashFill size="2rem" spacing="5px"/>{totalnumber}</div>
                 </Button>
             </div>
             {show && <CustomModal hide={hidemodalhandler} order={ordermodalhandler} />}

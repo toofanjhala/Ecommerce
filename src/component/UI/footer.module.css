@@ -1,0 +1,28 @@
+.footer{
+    width: 100%;
+    padding:auto;
+    background-color:rgb(255, 191, 113);
+    text-align:left;
+    justify-content: center;
+    color:black;
+    font-weight: 700;
+    font-size:40px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    height: auto;
+
+
+}
+
+.title{
+    margin-left: 100px;
+    text-align: left;
+    margin-right: 900px;
+    
+}
+
+.youtube{
+    text-align: right;
+    margin-right: 30px;
+
+    
+}

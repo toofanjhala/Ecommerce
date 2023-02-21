@@ -2,6 +2,7 @@ import React from "react";
 import Cardbody from "./component/displayitems/cardbody";
 import CardProvider from "./store/CardContextprovider";
 import { Header } from "./component/UI/Header";
+import { Footer } from "./component/UI/Footer";
 
 
 
@@ -45,6 +46,7 @@ function App() {
     <CardProvider >
       <Header />
       <div className="row" >{items}</div>
+      <Footer/>
     </CardProvider>
   );
 }
