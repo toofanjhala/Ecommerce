@@ -14,6 +14,7 @@ export const Navigation = () => {
                     <NavLink to="/"><h4 >Home</h4></NavLink>
                     <NavLink to="/Store"><h4>Store</h4></NavLink>
                     <NavLink to="/aboutus"><h4>About</h4></NavLink>
+                    <NavLink to="/contactus"><h4>Contact</h4></NavLink>
                 </Nav>
                 <CustomButton />
             </Container>
