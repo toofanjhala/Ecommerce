@@ -4,3 +4,7 @@ h4{
     text-align: center;
     text-decoration: none;
 }
+nav a.active{
+    color:"red";
+
+}

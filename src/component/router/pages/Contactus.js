@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { Form, Button } from 'react-bootstrap'
-import Header from '../UI/Header'
-import Footer from '../UI/Footer'
+import Header from '../../UI/Header'
+import Footer from '../../UI/Footer'
 import { Container } from 'react-bootstrap'
 
 
@@ -29,8 +29,15 @@ export const Contactus = () => {
             }
         })
 
+
         const converted = await data.json()
         console.log(converted)
+
+        emailref.current.value = ""
+        nameref.current.value = ""
+        phoneref.current.value = ""
+
+        alert("form submitted")
 
     }
     return (
@@ -41,7 +48,8 @@ export const Contactus = () => {
             <h2 style={{ padding: "1rem", Color: "olive", fontFamily: "Stencil Std, fantasy", fontSize: "40px", marginTop: "30px", textAlign: "center", justifyContent: "center" }}>
                 Contact Us</h2>
             <Container style={{ margin: "5rem" }}>
-                <Form style={{ backgroundColor: "#ffffff" }}>
+
+                <Form style={{ backgroundColor: "#ffffff", width: "400px", marginLeft: "30rem", padding: "10px" }}>
                     <Form.Group className="mb-3" controlId="formBasicText">
                         <Form.Label>Name</Form.Label>
                         <Form.Control type="text" ref={nameref} placeholder="Enter Name" />

@@ -4,6 +4,7 @@ import './Cardbody.css'
 import Cardcontext from '../../store/context'
 import { Secondarycard } from '../Secondarymodal/secondarymodal'
 import { IoAddCircle } from "react-icons/io5";
+import { Link } from 'react-router-dom'
 
 
 
@@ -47,10 +48,10 @@ export const Cardbody = (props) => {
   return (
 
     <React.Fragment>
-      <Card className="card">
+      <Card className="card" ><Link to="/Home/product/p1">Details</Link><Link to="/Home/product/more">More Details</Link>
         <div key={props.id}>
           <span className="items">{props.title}</span>
-          <Card.Img variant="top" src={props.image} />
+          <Card.Img variant="top" className='zoom' src={props.image} />
           <h3> PRICE  ${props.price}</h3>
           <Card.Footer>
         
@@ -59,6 +60,8 @@ export const Cardbody = (props) => {
         </div>
       </Card>
       {popupstatus && <Secondarycard item={props.title} />}
+
+   
     </React.Fragment>
   )
 }
