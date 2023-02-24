@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from '../../UI/Header'
+import Header from '../../UI/Header';
 import Footer from '../../UI/Footer'
 import { Card, Container } from 'react-bootstrap'
 
@@ -7,7 +7,7 @@ import { Card, Container } from 'react-bootstrap'
 export const About = () => {
   return (
     <div>
-      <Header />
+    <Header/>
 
 
       <h2 style={{ padding: "1rem", Color: "olive", fontFamily: "Stencil Std, fantasy", fontSize: "70px", marginTop: "30px", textAlign: "center", justifyContent: "center" }}>Welcome To About us</h2>

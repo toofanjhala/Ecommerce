@@ -52,7 +52,7 @@ export const Contactus = () => {
                 Contact Us</h2>
             <Container style={{ margin: "5rem" }}>
 
-                <Form style={{ backgroundColor: "darkolivegreen", color:"black", width: "400px", marginLeft: "30rem", padding: "5px" }}>
+                <Form style={{ backgroundColor: "#9fd3c7", color:"black", width: "400px", marginLeft: "30rem", padding: "5px" }}>
                     <Form.Group className="mb-3" controlId="formBasicText">
                         <Form.Label>Name</Form.Label>
                         <Form.Control type="text" ref={nameref} placeholder="Enter Name" />

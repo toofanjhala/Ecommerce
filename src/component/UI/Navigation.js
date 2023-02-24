@@ -10,15 +10,15 @@ export const Navigation = () => {
 
     const ctx=useContext(Cardcontext)
 
-    console.log(ctx.isLoggein)
+
     return (
 
         <Navbar bg="dark" variant="dark" >
             <Container>
                 <Navbar.Brand href="#home"><h3>Sharpener Bazar</h3></Navbar.Brand>
                 <Nav>
-                <NavLink activeclassname={classes.active} to="/home">
-                {ctx.isLoggein && <h4 >Home</h4>}
+                <NavLink className= {classes.active} to={ctx.isLoggein ? "/home" : "/"} >
+                <h4 >Home</h4>
                 </NavLink>
                     {!ctx.isLoggein && <NavLink to="/Store"><h4>Store</h4></NavLink>}
                     {!ctx.isLoggein && <NavLink to="/aboutus"><h4>About</h4></NavLink>}
