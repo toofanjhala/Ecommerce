@@ -10,7 +10,7 @@ export const About = () => {
       <Header />
 
 
-      <h2 style={{padding:"1rem",Color:"olive", fontFamily:"Stencil Std, fantasy", fontSize:"70px", marginTop:"30px", textAlign:"center", justifyContent:"center"}}>Welcome To About us</h2>
+      <h2 style={{ padding: "1rem", Color: "olive", fontFamily: "Stencil Std, fantasy", fontSize: "70px", marginTop: "30px", textAlign: "center", justifyContent: "center" }}>Welcome To About us</h2>
       <Container>
 
         <Card>
@@ -28,7 +28,7 @@ export const About = () => {
 
           </p>
         </Card>
-       
+
       </Container>
       <Footer />
     </div>

@@ -3,18 +3,19 @@ import { Form, Button } from 'react-bootstrap'
 import Header from '../../UI/Header'
 import Footer from '../../UI/Footer'
 import { Container } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
 
 
 export const Contactus = () => {
+
+  const navigate=useNavigate()
 
     const nameref = useRef("")
     const emailref = useRef("")
     const phoneref = useRef("")
 
     async function datahandler(event) {
-
         event.preventDefault();
-
         const formdata = {
             name: nameref.current.value,
             email: emailref.current.value,
@@ -37,7 +38,9 @@ export const Contactus = () => {
         nameref.current.value = ""
         phoneref.current.value = ""
 
-        alert("form submitted")
+        navigate('/')
+
+        
 
     }
     return (
@@ -49,7 +52,7 @@ export const Contactus = () => {
                 Contact Us</h2>
             <Container style={{ margin: "5rem" }}>
 
-                <Form style={{ backgroundColor: "#ffffff", width: "400px", marginLeft: "30rem", padding: "10px" }}>
+                <Form style={{ backgroundColor: "darkolivegreen", color:"black", width: "400px", marginLeft: "30rem", padding: "5px" }}>
                     <Form.Group className="mb-3" controlId="formBasicText">
                         <Form.Label>Name</Form.Label>
                         <Form.Control type="text" ref={nameref} placeholder="Enter Name" />

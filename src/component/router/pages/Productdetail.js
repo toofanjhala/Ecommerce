@@ -13,7 +13,8 @@ export const Productdetail = () => {
             <h2 style={{ padding: "1rem", Color: "olive", fontFamily: "Stencil Std, fantasy", fontSize: "40px", marginTop: "30px", textAlign: "center", justifyContent: "center" }}>
                 Product Details</h2>
 
-            <h3> Directed to {data.p1} </h3>
+            <h3 style={{ padding: "1rem", color: "red",  fontSize: "30px", marginTop: "30px", textAlign: "center", justifyContent: "center" }}> 
+            Directed to {data.p1} </h3>
             <Footer />
         </section>
     )

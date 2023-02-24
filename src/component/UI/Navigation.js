@@ -1,24 +1,34 @@
-import React from 'react'
-import { Navbar, Nav, Container } from 'react-bootstrap'
+import React ,{useContext}from 'react'
+import { Navbar, Nav, Container, Button } from 'react-bootstrap'
 import { CustomButton } from '../cart/Custombutton'
 import { NavLink } from 'react-router-dom'
 import   classes from "./navigation.module.css"
+import Cardcontext from '../../store/context'
+
 
 export const Navigation = () => {
+
+    const ctx=useContext(Cardcontext)
+
+    console.log(ctx.isLoggein)
     return (
 
         <Navbar bg="dark" variant="dark" >
             <Container>
                 <Navbar.Brand href="#home"><h3>Sharpener Bazar</h3></Navbar.Brand>
                 <Nav>
-                    <NavLink activeclassname={classes.active} to="/"><h4 >Home</h4></NavLink>
-                    <NavLink to="/Store"><h4>Store</h4></NavLink>
-                    <NavLink to="/aboutus"><h4>About</h4></NavLink>
-                    <NavLink to="/contactus"><h4>Contact</h4></NavLink>
+                <NavLink activeclassname={classes.active} to="/home">
+                {ctx.isLoggein && <h4 >Home</h4>}
+                </NavLink>
+                    {!ctx.isLoggein && <NavLink to="/Store"><h4>Store</h4></NavLink>}
+                    {!ctx.isLoggein && <NavLink to="/aboutus"><h4>About</h4></NavLink>}
+                    { !ctx.isLoggein &&<NavLink to="/contactus"><h4>Contact</h4></NavLink>}
+                    {!ctx.isLoggein && <NavLink to="/"><h4>Login</h4></NavLink>}
                 </Nav>
-                <CustomButton />
+                { ctx.isLoggein && <CustomButton />}
+               
             </Container>
+           { ctx.isLoggein && <Button style={{margin:"auto"}}variant="danger" onClick={ctx.logout}>Logout</Button> }
         </Navbar>
-
     )
 }

@@ -48,7 +48,7 @@ export const Cardbody = (props) => {
   return (
 
     <React.Fragment>
-      <Card className="card" ><Link to="/Home/product/p1">Details</Link><Link to="/Home/product/more">More Details</Link>
+      <Card className="card" ><Link to={`/Home/product/${props.title}`}>Details</Link>
         <div key={props.id}>
           <span className="items">{props.title}</span>
           <Card.Img variant="top" className='zoom' src={props.image} />
