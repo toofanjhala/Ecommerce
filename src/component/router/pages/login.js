@@ -15,6 +15,8 @@ const LoginForm = () => {
 
   const emailref = useRef("")
   const passwordref = useRef("")
+
+ 
  
   const [request, setrequest] = useState(false)
 
@@ -25,6 +27,10 @@ const LoginForm = () => {
 
     const enteredemail = emailref.current.value;
     const enteredpassword = passwordref.current.value;
+
+    let cleanStr = enteredemail.replace(/[^a-zA-Z0-9]/g, "");
+    
+    localStorage.setItem("email",cleanStr)
 
     let url = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDI-gNhpFiP3Qu0SyCNBU_4XU1ghwSXVnw"
 
@@ -67,7 +73,10 @@ const LoginForm = () => {
       .catch((Err) => {
         alert(Err.message)
       })
-  }
+  
+    
+     
+    }
   return (
 <React.Fragment>
     <Header/>
@@ -97,6 +106,6 @@ const LoginForm = () => {
   );
 };
 
-
+ 
 
 export default LoginForm;

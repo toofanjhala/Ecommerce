@@ -7,8 +7,9 @@ const Cardcontext = React.createContext({
       removeItem: (id) => { },
       token: "",
       isLoggein: false,
-      login: (token) => { },
-      logout: () => { }
+      login: (token,email) => { },
+      logout: () => { },
+      Email:""
 
 })
 

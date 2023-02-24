@@ -15,6 +15,8 @@ export const Cardbody = (props) => {
 
   let ctx = useContext(Cardcontext)
 
+
+
   function itemhandler() {
 
     if (dublicate === false) {
@@ -25,6 +27,26 @@ export const Cardbody = (props) => {
         image: props.image,
         price: props.price,
       });
+
+      const id = localStorage.getItem("email")
+
+
+
+
+      fetch(`https://crudcrud.com/api/3d28e098705b4d0290be7e2e845a64c7/cart${id}`, {
+        method: "POST",
+        body: JSON.stringify({
+          id: props.id,
+          title: props.title,
+          image: props.image,
+          price: props.price,
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then((res) => {
+
+      })
 
       setpopupstatus(true)
 
@@ -54,14 +76,14 @@ export const Cardbody = (props) => {
           <Card.Img variant="top" className='zoom' src={props.image} />
           <h3> PRICE  ${props.price}</h3>
           <Card.Footer>
-        
-            <Button variant="success" onClick={itemhandler}> <IoAddCircle size="2em"/> Add to Cart</Button>
+
+            <Button variant="success" onClick={itemhandler}> <IoAddCircle size="2em" /> Add to Cart</Button>
           </Card.Footer>
         </div>
       </Card>
       {popupstatus && <Secondarycard item={props.title} />}
 
-   
+
     </React.Fragment>
   )
 }

@@ -17,7 +17,7 @@ export const Navigation = () => {
             <Container>
                 <Navbar.Brand href="#home"><h3>Sharpener Bazar</h3></Navbar.Brand>
                 <Nav>
-                <NavLink className= {classes.active} to={ctx.isLoggein ? "/home" : "/"} >
+                <NavLink className= {classes} to={ctx.isLoggein ? "/home" : "/"} >
                 <h4 >Home</h4>
                 </NavLink>
                     {!ctx.isLoggein && <NavLink to="/Store"><h4>Store</h4></NavLink>}

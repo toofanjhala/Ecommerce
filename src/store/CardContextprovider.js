@@ -9,6 +9,7 @@ const CardProvider = (props) => {
     const [items, setitems] = useState([])
      const intialtoken = localStorage.getItem("token")
     const [token, settoken] = useState(intialtoken)
+    
     const isloggedinboolean = !!token
 
     const addItemToCartHandler = (item) => {
@@ -23,8 +24,9 @@ const CardProvider = (props) => {
     };
 
     function loginhandler(token) {
+      
         settoken(token)
-        
+       
 
     }
     function logouthandler() {
@@ -41,8 +43,9 @@ const CardProvider = (props) => {
         token: token,
         isLoggein: isloggedinboolean,
         login: loginhandler,
-        logout: logouthandler
-
+        logout: logouthandler,
+      
+     
     };
 
     return (
