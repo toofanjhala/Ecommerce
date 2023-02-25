@@ -9,7 +9,7 @@ const Cardcontext = React.createContext({
       isLoggein: false,
       login: (token,email) => { },
       logout: () => { },
-      Email:""
+      total:0
 
 })
 

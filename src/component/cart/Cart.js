@@ -1,63 +1,25 @@
 import { Button } from "react-bootstrap";
-import React, { useEffect, useState } from "react";
-
+import React, {useContext } from "react";
 import { TotalAmount } from "./TotalAmount";
+import Cardcontext from "../../store/context";
 
 
 
 function Cart(props) {
 
+const ctx=useContext(Cardcontext)
 
 
-  const [mydata, setMydata] = useState([])
-  useEffect(() => {
-    const id = localStorage.getItem("email")
-    fetch(`https://crudcrud.com/api/3d28e098705b4d0290be7e2e845a64c7/cart${id}`).then(res => {
-
-      return res.json()
-    })
-      .then((data) => {
-        setMydata(data)
-
-
-      })
-  }, [])
-
-
-  console.log(mydata)
-
-
-
-
-
-  function cartItemRemoveHandler(deleteid) {
-
-
-    const id = localStorage.getItem("email")
-
-
-    fetch(`https://crudcrud.com/api/3d28e098705b4d0290be7e2e845a64c7/cart${id}/${deleteid}`, {
-      method: "DELETE"
-    }).then((res) => {
-      console.log(res)
-
-      const id = localStorage.getItem("email")
-      fetch(`https://crudcrud.com/api/3d28e098705b4d0290be7e2e845a64c7/cart${id}`).then(res => {
-
-        return res.json()
-      })
-        .then((data) => {
-          setMydata(data)
-
-        })
-
-    })
-
+ function cartItemRemoveHandler(deleteid)
+  {
+    ctx.removeItem(deleteid)
   }
 
-  const sum = mydata.reduce(function (acc, obj) { return acc + obj.price; }, 0);
-  const cartitems = mydata.map((item) => {
-    console.log(item)
+  console.log(ctx.items)
+
+  const sum = ctx.items.reduce(function (acc, obj) { return acc + obj.price; }, 0);
+  const cartitems = ctx.items.map((item) => {
+    
 
     return (
       <tr key={item._id}

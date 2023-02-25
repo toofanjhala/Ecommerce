@@ -12,7 +12,7 @@ function CustomModal(props) {
   return (
     <div
       className="modal show"
-      style={{ display: 'block', marginLeft:"66rem" , marginTop:"5rem",position: "fixed", height: "auto", width: "30%"}}
+      style={{ display: 'block', marginLeft:"66rem" , marginTop:"5rem",position: "fixed", height: "auto", width: "30%",}}
     >
       <Modal.Dialog >
         <Modal.Header closeButton onClick={props.hide}>

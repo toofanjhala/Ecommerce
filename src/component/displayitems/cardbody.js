@@ -15,11 +15,9 @@ export const Cardbody = (props) => {
 
   let ctx = useContext(Cardcontext)
 
-
-
   function itemhandler() {
 
-    if (dublicate === false) {
+   if (dublicate === false) {
 
       ctx.addItem({
         id: props.id,
@@ -28,42 +26,23 @@ export const Cardbody = (props) => {
         price: props.price,
       });
 
-      const id = localStorage.getItem("email")
-
-
-
-
-      fetch(`https://crudcrud.com/api/3d28e098705b4d0290be7e2e845a64c7/cart${id}`, {
-        method: "POST",
-        body: JSON.stringify({
-          id: props.id,
-          title: props.title,
-          image: props.image,
-          price: props.price,
-        }),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      }).then((res) => {
-
-      })
-
-      setpopupstatus(true)
+     
+    setpopupstatus(true)
 
       setTimeout(() => {
         setpopupstatus(false)
       }, 1000);
     }
 
-    setdublicate(true)
+     setdublicate(true)
 
-    if (dublicate === true) {
-      alert("Item Already Eist")
+     if (dublicate === true) {
+       alert("Item Already Eist")
+     }
+
+
     }
-
-
-
-  }
+  
 
 
 

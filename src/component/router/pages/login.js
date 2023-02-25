@@ -64,7 +64,7 @@ const LoginForm = () => {
         }
 
       }).then((data) => {
-        console.log(data)
+        
         navigate("/home")
         ctx.login(data.idToken)
         localStorage.setItem("token", data.idToken)

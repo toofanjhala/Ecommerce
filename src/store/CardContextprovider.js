@@ -1,58 +1,116 @@
 import Cardcontext from "./context";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const CardProvider = (props) => {
 
-    const navigate=useNavigate()
 
-    const [items, setitems] = useState([])
-     const intialtoken = localStorage.getItem("token")
-    const [token, settoken] = useState(intialtoken)
-    
-    const isloggedinboolean = !!token
+  const [items, setitems] = useState([])
+  const intialtoken = localStorage.getItem("token")
+  const [token, settoken] = useState(intialtoken)
+  const [totalnumber, settotalnumber] = useState(0)
 
-    const addItemToCartHandler = (item) => {
-        setitems([...items, item])
-    };
+  useEffect(() => {
+    const id = localStorage.getItem("email")
+    fetch(`https://crudcrud.com/api/99ea73b3833b4802a9db84216d181da0/cart${id}`).then(res => {
 
-    const removeItemFromCartHandler = (deleteid) => {
-        const result = items.filter((item) => {
-            return item.id !== deleteid
+      return res.json()
+    })
+      .then((data) => {
+        setitems(data)
+        settotalnumber(data.length)
+
+      })
+  }, [])
+
+
+
+  const navigate = useNavigate()
+
+
+
+  const isloggedinboolean = !!token
+
+  const addItemToCartHandler = (item) => {
+    const id = localStorage.getItem("email")
+
+    fetch(`https://crudcrud.com/api/99ea73b3833b4802a9db84216d181da0/cart${id}`, {
+      method: "POST",
+      body: JSON.stringify(item),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then((res) => {
+      return res.json()
+    })
+      .then((data) => {
+        setitems([...items, data])
+        settotalnumber(totalnumber + 1)
+
+      })
+
+
+    // setitems([...items, data])
+  };
+
+  const removeItemFromCartHandler = (deleteid) => {
+
+    const id = localStorage.getItem("email")
+
+
+    fetch(`https://crudcrud.com/api/99ea73b3833b4802a9db84216d181da0/cart${id}/${deleteid}`, {
+      method: "DELETE"
+    }).then((res) => {
+
+
+      const id = localStorage.getItem("email")
+      fetch(`https://crudcrud.com/api/99ea73b3833b4802a9db84216d181da0/cart${id}`).then(res => {
+
+        return res.json()
+      })
+        .then((data) => {
+          setitems(data)
+          settotalnumber(data.length)
+
+
         })
-        setitems(result)
-    };
 
-    function loginhandler(token) {
-      
-        settoken(token)
-       
+    })
 
-    }
-    function logouthandler() {
-        settoken(null)
-        localStorage.removeItem("token")
-        navigate("/")
-    }
 
-    const cartContext = {
-        items: items,
-        totalAmount: 0,
-        addItem: addItemToCartHandler,
-        removeItem: removeItemFromCartHandler,
-        token: token,
-        isLoggein: isloggedinboolean,
-        login: loginhandler,
-        logout: logouthandler,
-      
-     
-    };
+  };
 
-    return (
-        <Cardcontext.Provider value={cartContext}>
-            {props.children}
-        </Cardcontext.Provider>
-    );
+  function loginhandler(token) {
+
+    settoken(token)
+
+
+  }
+  function logouthandler() {
+    settoken(null)
+    localStorage.removeItem("token")
+    navigate("/")
+  }
+
+  const cartContext = {
+    items: items,
+    totalAmount: 0,
+    addItem: addItemToCartHandler,
+    removeItem: removeItemFromCartHandler,
+    token: token,
+    isLoggein: isloggedinboolean,
+    login: loginhandler,
+    logout: logouthandler,
+    total: totalnumber
+
+
+  };
+
+  return (
+    <Cardcontext.Provider value={cartContext}>
+      {props.children}
+    </Cardcontext.Provider>
+  );
 };
 
 export default CardProvider;
