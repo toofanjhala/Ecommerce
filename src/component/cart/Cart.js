@@ -15,7 +15,7 @@ const ctx=useContext(Cardcontext)
     ctx.removeItem(deleteid)
   }
 
-  console.log(ctx.items)
+  // console.log(ctx.items)
 
   const sum = ctx.items.reduce(function (acc, obj) { return acc + obj.price; }, 0);
   const cartitems = ctx.items.map((item) => {

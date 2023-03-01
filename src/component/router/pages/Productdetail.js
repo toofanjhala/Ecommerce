@@ -3,7 +3,7 @@ import Footer from '../../UI/Footer'
 import Header from '../../UI/Header'
 import { useParams } from 'react-router-dom'
 
-export const Productdetail = () => {
+ const Productdetail = () => {
 
     const data = useParams()
     console.log(data)
@@ -19,3 +19,4 @@ export const Productdetail = () => {
         </section>
     )
 }
+ export default Productdetail

@@ -6,7 +6,7 @@ import { Container } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 
 
-export const Contactus = () => {
+ const Contactus = () => {
 
   const navigate=useNavigate()
 
@@ -79,3 +79,4 @@ export const Contactus = () => {
         </div>
     )
 }
+export default Contactus

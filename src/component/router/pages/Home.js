@@ -8,7 +8,7 @@ import CardProvider from "../../../store/CardContextprovider";
 import { Heading } from "../../UI/heading";
 
 
-export const Home = () => {
+ const Home = () => {
     const productsArr = [
 
         { id: "m1", title: 'Colors', price: 100, imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png', },
@@ -44,3 +44,4 @@ export const Home = () => {
       </CardProvider>
   )
 }
+export default Home

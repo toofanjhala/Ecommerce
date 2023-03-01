@@ -3,7 +3,7 @@ import Header from '../../UI/Header'
 import Footer from '../../UI/Footer'
 import { Container,Card } from 'react-bootstrap'
 
-export const Store = () => {
+ const Store = () => {
   return (
     <div>
       <Header />
@@ -31,3 +31,4 @@ export const Store = () => {
     </div>
   )
 }
+export default Store

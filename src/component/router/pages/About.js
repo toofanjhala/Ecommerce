@@ -4,7 +4,7 @@ import Footer from '../../UI/Footer'
 import { Card, Container } from 'react-bootstrap'
 
 
-export const About = () => {
+ const About = () => {
   return (
     <div>
     <Header/>
@@ -34,3 +34,4 @@ export const About = () => {
     </div>
   )
 }
+ export default About
