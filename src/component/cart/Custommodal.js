@@ -8,11 +8,13 @@ import Cart from './Cart';
 
 function CustomModal(props) {
 
- 
+
+
+
   return (
     <div
       className="modal show"
-      style={{ display: 'block', marginLeft:"66rem" , marginTop:"5rem",position: "fixed", height: "auto", width: "30%",}}
+      style={{ display: 'block', marginLeft: "66rem", marginTop: "5rem", position: "fixed", height: "auto", width: "30%", }}
     >
       <Modal.Dialog >
         <Modal.Header closeButton onClick={props.hide}>
@@ -22,10 +24,10 @@ function CustomModal(props) {
           <Table striped bordered hover>
             <thead>
               <tr>
-                <th>Quantity</th>
+                <th>Title</th>
                 <th>Item</th>
-                <th>Price</th>
-                <th>Remove item </th>
+                <th>Quantity</th>
+                <th>Price </th>
               </tr>
             </thead>
             <tbody>

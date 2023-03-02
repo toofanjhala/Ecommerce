@@ -1,6 +1,8 @@
 import React from 'react'
 
+
 export const TotalAmount = (props) => {
+  
   return (
     <tr>
         <td

@@ -1,47 +1,48 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import { Card, Button } from 'react-bootstrap'
 import './Cardbody.css'
-import Cardcontext from '../../store/context'
+
 import { Secondarycard } from '../Secondarymodal/secondarymodal'
 import { IoAddCircle } from "react-icons/io5";
 import { Link } from 'react-router-dom'
 
-
+import { useDispatch } from 'react-redux'
+import { ItemActions } from '../../store/itemsSlice'
 
 export const Cardbody = (props) => {
 
-  const [popupstatus, setpopupstatus] = useState(false)
-  const [dublicate, setdublicate] = useState(false)
+  const dispatch=useDispatch()
 
-  let ctx = useContext(Cardcontext)
+  const [popupstatus, setpopupstatus] = useState(false)
+  
+  // let ctx = useContext(Cardcontext)
 
   function itemhandler() {
 
-   if (dublicate === false) {
 
-      ctx.addItem({
-        id: props.id,
-        title: props.title,
-        image: props.image,
-        price: props.price,
-      });
+    dispatch(ItemActions.addItemToCart({
+      id: props.id,
+      title: props.title,
+      image: props.image,
+      price: props.price,
 
-     
+    }))
+
+
+
+    //  ctx.addItem({
+    //     id: props.id,
+    //     title: props.title,
+    //     image: props.image,
+    //     price: props.price,
+    //   }); 
+
     setpopupstatus(true)
 
       setTimeout(() => {
         setpopupstatus(false)
       }, 1000);
-    }
-
-     setdublicate(true)
-
-     if (dublicate === true) {
-       alert("Item Already Eist")
-     }
-
-
-    }
+  }
   
 
 

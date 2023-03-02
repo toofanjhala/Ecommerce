@@ -8,17 +8,18 @@ import { CartAction } from '../../store/cartslice';
 export const CustomButton = () => {
 
  const newshow=useSelector((state)=>state.Cart.Visible)
+ const totalQuantity=useSelector((state)=>state.Item.totalQuantity)
   const dispatch=useDispatch()
     const ctx = useContext(Cardcontext)
     
    
    
     const [show, setshow] = useState(false)
-    console.log(show ,"not neccesasary")
+ 
     function showmodalhandler() {
-    //     setshow(true)
-     dispatch(CartAction.toggle())
-    //  console.log(newshow)
+   
+     dispatch(CartAction.toggle)
+     setshow(true)
 
     }
 
@@ -37,10 +38,11 @@ export const CustomButton = () => {
             
           <Button onClick={showmodalhandler} variant="info"> YOUR CART
                     <div style={{ color: "black", fontFamily: "inherit", fontSize: "18px", fontStyle: "bold", padding: "1px" }}>
-                      <BsCartDashFill size="2rem" spacing="5px"/>{ctx.total}</div>
+                      <BsCartDashFill size="2rem" spacing="5px"/>{totalQuantity}</div>
                 </Button>
             </div>
-            {newshow && <CustomModal hide={hidemodalhandler} order={ordermodalhandler} />}
+            {/* {newshow && <CustomModal hide={hidemodalhandler} order={ordermodalhandler} />} */}
+            {show && <CustomModal hide={hidemodalhandler} order={ordermodalhandler} />}
         </React.Fragment>
     )
 }
