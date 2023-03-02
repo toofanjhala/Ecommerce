@@ -2,10 +2,12 @@ import { CartAction } from './cartslice';
 import { ItemActions } from './itemsSlice';
 
 export const fetchCartData = () => {
+
   return async (dispatch) => {
     const fetchData = async () => {
+      const id=localStorage.getItem("email")
       const response = await fetch(
-        'https://ecommerce-c9032-default-rtdb.firebaseio.com/newcart.json'
+        `https://ecommerce-c9032-default-rtdb.firebaseio.com/${id}.json`
       );
 
       if (!response.ok) {
@@ -37,6 +39,8 @@ export const fetchCartData = () => {
   };
 };
 
+
+
 export const sendCartData = (cart) => {
   return async (dispatch) => {
     dispatch(
@@ -47,9 +51,11 @@ export const sendCartData = (cart) => {
       })
     );
 
-    const sendRequest = async () => {
+   
+   const sendRequest = async () => {
+    const id=localStorage.getItem("email")
       const response = await fetch(
-        'https://ecommerce-c9032-default-rtdb.firebaseio.com/newcart.json',
+        `https://ecommerce-c9032-default-rtdb.firebaseio.com/${id}.json`,
         {
           method: 'PUT',
           body: JSON.stringify({
@@ -71,7 +77,7 @@ export const sendCartData = (cart) => {
         CartAction.showNotification({
           status: 'success',
           title: 'Success!',
-          message: 'Sent cart data successfully!',
+          message: 'Sent cart data check!',
         })
       );
     } catch (error) {

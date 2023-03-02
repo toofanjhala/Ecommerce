@@ -1,28 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React, {useState } from 'react'
 import { Button } from 'react-bootstrap'
 import CustomModal from './Custommodal'
 import { BsCartDashFill } from "react-icons/bs";
 import { useSelector, useDispatch } from 'react-redux';
 import { CartAction } from '../../store/cartslice';
-import { sendCartData } from '../../store/Cart-Actions';
-let isInitial = true;
 export const CustomButton = () => {
 
     
-    const Item = useSelector((state) => state.Item)
+    
     const totalQuantity = useSelector((state) => state.Item.totalQuantity)
    
     const dispatch = useDispatch()
 
     
-  useEffect(() => {
-    if (isInitial) {
-      isInitial = false;
-      return;
-    }
-
-    dispatch(sendCartData(Item));
-  }, [Item, dispatch]);
+ 
 
 
     const [show, setshow] = useState(false)
