@@ -6,9 +6,13 @@ import Footer from "../../UI/Footer"
 import Header from "../../UI/Header";
 import CardProvider from "../../../store/CardContextprovider";
 import { Heading } from "../../UI/heading";
-
+import Notification from "../../UI/Notification";
+import { useSelector } from "react-redux";
 
  const Home = () => {
+  const notification = useSelector((state) => state.Cart.notification);
+
+  console.log(notification)
     const productsArr = [
 
         { id: "m1", title: 'Colors', price: 100, imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png', },
@@ -37,7 +41,14 @@ import { Heading } from "../../UI/heading";
       })
     return (
         <CardProvider >
-       <Header/>
+      {notification && (
+        <Notification
+          status={notification.status}
+          title={notification.title}
+          message={notification.message}
+        />
+      )} 
+      <Header/>
        <Heading/>
         <div className="row" >{items}</div>
         <Footer/>

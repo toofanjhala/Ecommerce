@@ -12,7 +12,7 @@ const CardProvider = (props) => {
 
   useEffect(() => {
     const id = localStorage.getItem("email")
-    fetch(`https://crudcrud.com/api/fe2a3201a5e34b1796caa80fcd989945/cart${id}`).then(res => {
+    fetch(`https://crudcrud.com/api/db2d033f6e0f46eba6972e9865f65e6c/cart${id}`).then(res => {
 
       return res.json()
     })
@@ -34,7 +34,7 @@ const CardProvider = (props) => {
   const addItemToCartHandler = (item) => {
     const id = localStorage.getItem("email")
 
-    fetch(`https://crudcrud.com/api/fe2a3201a5e34b1796caa80fcd989945/cart${id}`, {
+    fetch(`https://crudcrud.com/api/db2d033f6e0f46eba6972e9865f65e6c/cart${id}`, {
       method: "POST",
       body: JSON.stringify(item),
       headers: {
@@ -58,13 +58,13 @@ const CardProvider = (props) => {
     const id = localStorage.getItem("email")
 
 
-    fetch(`https://crudcrud.com/api/fe2a3201a5e34b1796caa80fcd989945/cart${id}/${deleteid}`, {
+    fetch(`https://crudcrud.com/api/db2d033f6e0f46eba6972e9865f65e6c/cart${id}/${deleteid}`, {
       method: "DELETE"
     }).then((res) => {
 
 
       const id = localStorage.getItem("email")
-      fetch(`https://crudcrud.com/api/fe2a3201a5e34b1796caa80fcd989945/cart${id}`).then(res => {
+      fetch(`https://crudcrud.com/api/db2d033f6e0f46eba6972e9865f65e6c/cart${id}`).then(res => {
 
         return res.json()
       })

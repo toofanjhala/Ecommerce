@@ -18,7 +18,7 @@ h1 {
 }
 
 .trial {
-  top: 0;
+  top: 5;
   width: 100%;
   position: sticky;
   z-index: 999;
