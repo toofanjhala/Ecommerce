@@ -4,7 +4,7 @@ import CustomModal from './Custommodal'
 import { BsCartDashFill } from "react-icons/bs";
 import { useSelector, useDispatch } from 'react-redux';
 import { CartAction } from '../../store/cartslice';
-
+import { sendCartData } from '../../store/Cart-Actions';
 let isInitial = true;
 export const CustomButton = () => {
 
@@ -14,51 +14,16 @@ export const CustomButton = () => {
    
     const dispatch = useDispatch()
 
-    useEffect(() => {
-        const sendCartData = async () => {
-          dispatch(
-            CartAction.showNotification({
-              status: 'pending',
-              title: 'Sending...',
-              message: 'Sending cart data!',
-            })
-          );
-          const response = await fetch(
-            'https://ecommerce-c9032-default-rtdb.firebaseio.com/cart.json',
-            {
-              method: 'PUT',
-              body: JSON.stringify(Item),
-            }
-          );
     
-          if (!response.ok) {
-            throw new Error('Sending cart data failed.');
-          }
-    
-          dispatch(
-            CartAction.showNotification({
-              status: 'success',
-              title: 'Success!',
-              message: 'Sent cart data successfully!',
-            })
-          );
-        };
-    
-        if (isInitial) {
-          isInitial = false;
-          return;
-        }
-    
-        sendCartData().catch((error) => {
-          dispatch(
-            CartAction.showNotification({
-              status: 'error',
-              title: 'Error!',
-              message: 'Sending cart data failed!',
-            })
-          );
-        });
-      }, [Item, dispatch]);
+  useEffect(() => {
+    if (isInitial) {
+      isInitial = false;
+      return;
+    }
+
+    dispatch(sendCartData(Item));
+  }, [Item, dispatch]);
+
 
     const [show, setshow] = useState(false)
 

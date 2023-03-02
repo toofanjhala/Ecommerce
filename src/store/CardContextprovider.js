@@ -1,5 +1,5 @@
 import Cardcontext from "./context";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const CardProvider = (props) => {
@@ -10,18 +10,18 @@ const CardProvider = (props) => {
   const [token, settoken] = useState(intialtoken)
   const [totalnumber, settotalnumber] = useState(0)
 
-  useEffect(() => {
-    const id = localStorage.getItem("email")
-    fetch(`https://crudcrud.com/api/db2d033f6e0f46eba6972e9865f65e6c/cart${id}`).then(res => {
+  // useEffect(() => {
+  //   const id = localStorage.getItem("email")
+  //   fetch(`https://crudcrud.com/api/db2d033f6e0f46eba6972e9865f65e6c/cart${id}`).then(res => {
 
-      return res.json()
-    })
-      .then((data) => {
-        setitems(data)
-        settotalnumber(data.length)
+  //     return res.json()
+  //   })
+  //     .then((data) => {
+  //       setitems(data)
+  //       settotalnumber(data.length)
 
-      })
-  }, [])
+  //     })
+  // }, [])
 
 
 
