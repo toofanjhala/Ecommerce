@@ -1,8 +1,9 @@
 
 import LoginForm from "./component/router/pages/login";
 import React, { lazy, Suspense } from "react";
-import { createBrowserRouter, RouterProvider, } from 'react-router-dom';
+import { BrowserRouter,Routes,Route} from 'react-router-dom';
 import RootLayout from "./component/router/pages/root";
+
 // import { About } from "./component/router/pages/About";
 // import { Store } from "./component/router/pages/Store";
 // import { Contactus } from "./component/router/pages/Contactus";
@@ -20,28 +21,24 @@ function App() {
 
 
 
-  const router = createBrowserRouter([
-
-  
-    {
-      path: '/',
-      element: <RootLayout />,
-  
-      children: [
-        {  path: '/', element: <LoginForm /> },
-        { path: '/aboutus', element: <Suspense fallback={<p>Loading</p>}><About/></Suspense> },
-        { path: '/Store', element: <Suspense fallback={<p>Loading</p>}><Store/></Suspense> },
-        { path: '/contactus', element: <Suspense fallback={<p>Loading</p>}><Contactus/></Suspense> },
-        { path: '/home', element: <Suspense fallback={<p>Loading</p>}><Home/></Suspense> },
-        { path: '/Home/product/:p1', element: <Suspense fallback={<p>Loading</p>}><Productdetail/></Suspense> }
-      ],
-    }
-  ]);
-
 
   return (
-    <RouterProvider router={router} />
-  )
+    <BrowserRouter>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Routes>
+        <Route path="/" element={<RootLayout />}>
+          <Route path="/" element={<LoginForm />} />
+          <Route path="/aboutus" element={<About />} />
+          <Route path="/Store" element={<Store />} />
+          <Route path="/contactus" element={<Contactus />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/home/product/:p1" element={<Productdetail />} />
+        </Route>
+      </Routes>
+    </Suspense>
+  </BrowserRouter>
+    );
+  
 
 }
 
