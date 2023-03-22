@@ -1,7 +1,7 @@
 
 import LoginForm from "./component/router/pages/login";
 import React, { lazy, Suspense } from "react";
-import { BrowserRouter,Routes,Route} from 'react-router-dom';
+import { Route,Routes, HashRouter} from 'react-router-dom';
 import RootLayout from "./component/router/pages/root";
 
 // import { About } from "./component/router/pages/About";
@@ -23,7 +23,7 @@ function App() {
 
 
   return (
-    <BrowserRouter>
+    <HashRouter>
     <Suspense fallback={<div>Loading...</div>}>
       <Routes>
         <Route path="/" element={<RootLayout />}>
@@ -36,7 +36,7 @@ function App() {
         </Route>
       </Routes>
     </Suspense>
-  </BrowserRouter>
+  </HashRouter>
     );
   
 
